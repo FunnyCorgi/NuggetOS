@@ -1,39 +1,19 @@
 mov ah, 0x0e;tty mode
 
-;set up stack
-mov sp, 0x8000
-mov bp, sp
-
-;stack is set now set up, put the chars for the string 'Now booting NuggetOS'
-push 'S'
-push 'O'
-push 't'
-push 'e'
-push 'g'
-push 'g'
-push 'u'
-push 'N'
-push ' '
-push 'g'
-push 'n'
-push 'i'
-push 't'
-push 'o'
-push 'o'
-push 'b'
-push ' '
-push 'w'
-push 'o'
-push 'N'
-
-print_stack_char_loop:
-  pop bx
-  mov al, bl
-  int 0x10
-  cmp al, 'S'
-  jne print_stack_char_loop
-done:
-  jmp $
+;we are now preparing to jump to 32 bit mode, then the kernel once it's loaded
+mov al, 'W'
+int 0x10
+mov al, 'o'
+int 0x10
+mov al, 'r'
+int 0x10
+mov al, 'k'
+int 0x10
+mov al, 's'
+int 0x10
+mov al, '!'
+int 0x10
+jmp $
 
 times 510 - ($-$$) db 0
 dw 0xaa55

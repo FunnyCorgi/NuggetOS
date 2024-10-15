@@ -47,7 +47,7 @@ jobs:
           nasm -f bin ./src/boot.asm -o ./boot.bin
           ls -al
           ls -al /usr/bin/gcc-*
-          whereis gcc
+          whereis gcc-14
           # export CC=/usr/bin/gcc-14
           # export LD=/usr/bin/gcc-14
           # mkdir /tmp/src

@@ -30,7 +30,7 @@ print_stack_char_loop:
   pop bx
   mov al, bl
   int 0x10
-  cmp al, 'N'
+  cmp al, 'S'
   jne print_stack_char_loop
 done:
   jmp $

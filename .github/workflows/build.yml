@@ -24,7 +24,7 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
-      - name: Install Brew and dependencies. 
+      - name: Build 
         run: |
           wget https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh -O brew-install.sh
           ls -al
@@ -40,15 +40,11 @@ jobs:
           brew install nasm
           brew install libmpc
           brew install gcc
-      - name: Install GCC Cross Compiler
-        run: |
+          echo installing gcc cross compilet - not yet implemented
           cd ~/work/NuggetOS/NuggetOS
           ls -al
-      - name: Test build boot asm
-        run: |
-         nasm -f bin ./src/boot.asm -o ./boot.bin
-      - name: list dir to show boot test build was created
-        run: |
+          echo running nasm
+          nasm -f bin ./src/boot.asm -o ./boot.bin
           ls -al
       - uses: actions/upload-artifact@v4
         with:

@@ -47,7 +47,7 @@ jobs:
           brew install gcc
       - name: Install GCC Cross Compiler
         run: |
-          cd ~/work/NuggetOS
+          cd ~/work/NuggetOS/NuggetOS
           ls -al
           
               

@@ -46,7 +46,12 @@ jobs:
           echo running nasm
           nasm -f bin ./src/boot.asm -o ./boot.bin
           ls -al
-          ls -al /usr/bin/gcc-*
+          ls -al /usr/local/bin/gcc-*
+          # export CC=/usr/local/bin/gcc-14
+          # export LD=/usr/local/bin/gcc-14
+          mkdir /tmp/src
+          cd /tmp/src
+          
       - uses: actions/upload-artifact@v4
         with:
           name: boot.bin

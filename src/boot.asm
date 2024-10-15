@@ -26,7 +26,7 @@ push 'w'
 push 'o'
 push 'N'
 
-print_stack_char_loop
+print_stack_char_loop:
   pop bx
   mov al, bl
   int 0x10

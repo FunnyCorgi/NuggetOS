@@ -40,7 +40,10 @@ jobs:
            echo >> /home/runner/.bashrc
           echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/runner/.bashrc
           eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-          # test if we can run brew
-          brew --help
+          brew install gmp
+          brew install mpfr
+          brew install nasm
+          brew install libmpc
+          brew install gcc
           
               

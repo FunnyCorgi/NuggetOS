@@ -30,7 +30,7 @@ jobs:
         run: echo Hello, world!
 
       # Runs a set of commands using the runners shell
-      - name: Install Brew. 
+      - name: Install Brew and dependencies. 
         run: |
           wget https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
           ls -al
@@ -45,5 +45,8 @@ jobs:
           brew install nasm
           brew install libmpc
           brew install gcc
-          
+      - name: Install GCC Cross Compiler
+        run: |
+          cd ~
+          ls -al
               

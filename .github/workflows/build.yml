@@ -32,7 +32,7 @@ jobs:
           CI=1 ./brew-install.sh
           rm ./brew-install.sh
           sudo apt-get install build-essential -y
-           echo >> /home/runner/.bashrc
+          echo >> /home/runner/.bashrc
           echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/runner/.bashrc
           eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
           brew install gmp

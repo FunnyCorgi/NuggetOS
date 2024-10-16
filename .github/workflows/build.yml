@@ -43,8 +43,6 @@ jobs:
           echo installing gcc cross compiler
           cd ~/work/NuggetOS/NuggetOS
           ls -al
-          echo running nasm
-          nasm -f bin ./src/boot.asm -o ./boot.bin
           ls -al
           ls -al /usr/bin/gcc-*
           whereis gcc-14
@@ -75,6 +73,7 @@ jobs:
           sudo make install-gcc
           sudo make install-target-libgcc
           ls /home/linuxbrew/.linuxbrew/bin/
+          ls /usr/local/
       - uses: actions/upload-artifact@v4
         with:
           name: boot.bin

@@ -73,12 +73,12 @@ jobs:
           sudo make install-gcc
           sudo make install-target-libgcc
           ls /home/linuxbrew/.linuxbrew/bin/
-          echo ls and lscpu:
+          echo ls and lscpu
           echo ls i386elfgcc
           ls -al /usr/local/
           ls -al /usr/local/i386elfgcc
           lscpu
-      - uses: actions/upload-artifact@v4
-        with:
-          name: boot.bin
-          path: ./boot.bin
+      # - uses: actions/upload-artifact@v4
+      #   with:
+      #     name: boot.bin
+      #     path: ./boot.bin

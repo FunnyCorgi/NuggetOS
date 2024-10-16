@@ -78,7 +78,12 @@ jobs:
           ls -al /usr/local/
           ls -al /usr/local/i386elfgcc
           lscpu
-      # - uses: actions/upload-artifact@v4
-      #   with:
-      #     name: boot.bin
-      #     path: ./boot.bin
+          cd ~/work/NuggetOS/NuggetOS/
+          zip -r ./i386-elf-gcc_buil_tools.zip /usr/local/i386elfgcc
+          ls -al
+          echo i386-elf-gcc version info
+          i386-elf-gcc --version
+      - uses: actions/upload-artifact@v4
+        with:
+          name: i386-elf-gcc_build_tools.zip
+          path: ./i386-elf-gcc_buil_tools.zip

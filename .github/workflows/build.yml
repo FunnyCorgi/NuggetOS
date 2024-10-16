@@ -75,7 +75,9 @@ jobs:
           ls /home/linuxbrew/.linuxbrew/bin/
           echo \n\n\n\n
           echo ls and lscpu:
-          ls /usr/local/
+          echo ls i386elfgcc
+          ls -al /usr/local/
+          ls -al /usr/local/i386elfgcc
           lscpu
       - uses: actions/upload-artifact@v4
         with:

@@ -73,7 +73,6 @@ jobs:
           sudo make install-gcc
           sudo make install-target-libgcc
           ls /home/linuxbrew/.linuxbrew/bin/
-          echo \n\n\n\n
           echo ls and lscpu:
           echo ls i386elfgcc
           ls -al /usr/local/

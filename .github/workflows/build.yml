@@ -66,9 +66,9 @@ jobs:
           tar xf ./gcc-14.2.0.tar.gz
           mkdir gcc-build
           cd gcc-build
-          cd ../gcc-14.2.0/contrib
-          sudo ./download_prerequisites
-          cd ../../gcc-build
+          cd ../gcc-14.2.0
+          sudo ./contrib/download_prerequisites
+          cd ../gcc-build
           sudo ../gcc-14.2.0/configure --target=i386-elf --prefix="/usr/local/i386elfgcc" --disable-nls --disable-libssp --enable-languages=c --without-headers
           sudo make all-gcc
           sudo make all-target-libgcc

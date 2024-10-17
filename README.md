@@ -9,5 +9,5 @@ Just a little funny os =).
 - [ ] commands
 - [ ] variables in the shell
 ## Long-term Roadmap
- - Permanent filesystem
- - GUI
+ - [ ] Permanent filesystem
+ - [ ] GUI

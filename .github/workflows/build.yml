@@ -87,6 +87,10 @@ jobs:
           /usr/local/i386elfgcc/bin/i386-elf-ld -o ./kernel.bin -Ttext 0x1000 ./kernel_entry.o ./kernel.o --oformat binary
           nasm ./src/boot/bootsect.asm -f bin -o ./bootsect.bin
           cat bootsect.bin kernel.bin > os-image.bin
+          echo df
+          df -h
+          echo lsblk
+          lsblk
       - uses: actions/upload-artifact@v4
         with:
           name: os-image.bin

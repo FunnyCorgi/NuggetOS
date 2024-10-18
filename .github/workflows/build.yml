@@ -88,7 +88,8 @@ jobs:
           df -h
           echo lsblk
           lsblk
-      - uses: actions/upload-artifact@v4
+      - name: Upload the OS image
+        uses: actions/upload-artifact@v4
         with:
           name: os-image.bin
           path: ./os-image.bin

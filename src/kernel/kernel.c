@@ -32,7 +32,7 @@ void main() {
 
     //set up vga modes
     char vga_mode = 0b00101001;
-    port_byte_out(0x3D8, vga_mode)
+    port_byte_out(0x3D8, vga_mode);
     // testing color changes
     /*
         Available Colors for 2nd byte to be written to VGA:
@@ -46,15 +46,14 @@ void main() {
     0x5 	Magenta	        0xd	            Pink
     0x6 	Brown	        0xe	            Yellow
     0x7 	Light Gray	    0xf	            White
-
     */
     char *vga = (char *) 0xb8000;
     vga[offset_from_vga] = 'X'; 
     vga[offset_from_vga+1] = 0x0f;//white on black
 
     vga[offset_from_vga+2] = 'Y';
-    vga[offset_from_vga+3] = 0x8e | 0x01;//should be black baskground with yellow blinking text
+    vga[offset_from_vga+3] = 0x0e | 0x80;//should be black baskground with yellow blinking text
     vga[offset_from_vga+4] = 'Z';
-    vga[offset_from_vga+5] = 0x8e | 0b00000001;//should be black baskground with yellow blinking text as well
+    vga[offset_from_vga+5] = 0x0e | 0b10000000;//should be black baskground with yellow blinking text as well
     
 }

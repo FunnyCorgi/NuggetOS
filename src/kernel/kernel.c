@@ -17,11 +17,11 @@ void main() {
 
     /* Let's write on the current cursor position, we already know how
      * to do that */
-    char *vga = 0xb8000;
+    char *vga = (char *) 0xb8000;
     vga[offset_from_vga] = 'X'; 
     vga[offset_from_vga+1] = 0x0f;//white on black
     
     // testing color changes
-    vga[offset_from_vga+2] = 'Y'
-    vga[offset_from_vga+3] = 0x0e
+    vga[offset_from_vga+2] = 'Y';
+    vga[offset_from_vga+3] = 0x0e;
 }

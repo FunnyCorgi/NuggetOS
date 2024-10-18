@@ -15,12 +15,24 @@ void main() {
      * e.g. 'white on black background', 'red text on white bg', etc */
     int offset_from_vga = position * 2; 
 
-    /* Let's write on the current cursor position, we already know how
-     * to do that */
-    char *vga = (char *) 0xb8000;
-    vga[offset_from_vga] = 'X'; 
-    vga[offset_from_vga+1] = 0x0f;//white on black
     
+
+    /*
+    03D8	r/w	CGA mode control register  (except PCjr)
+		 bit 7-6      not used
+		 bit 5	 = 1  blink enabled
+		 bit 4	 = 1  640*200 graphics mode
+		 bit 3	 = 1  video enabled
+		 bit 2	 = 1  monochrome signal
+		 bit 1	 = 0  text mode
+			     = 1  320*200 graphics mode
+		 bit 0	 = 0  40*25 text mode
+			     = 1  80*25 text mode
+    */
+
+    //set up vga modes
+    char vga_mode = 0b00101001;
+    port_byte_out(0x3D8, vga_mode)
     // testing color changes
     /*
         Available Colors for 2nd byte to be written to VGA:
@@ -34,10 +46,15 @@ void main() {
     0x5 	Magenta	        0xd	            Pink
     0x6 	Brown	        0xe	            Yellow
     0x7 	Light Gray	    0xf	            White
+
     */
+    char *vga = (char *) 0xb8000;
+    vga[offset_from_vga] = 'X'; 
+    vga[offset_from_vga+1] = 0x0f;//white on black
+
     vga[offset_from_vga+2] = 'Y';
-    vga[offset_from_vga+3] = 0x0e | 0x01;//should be black baskground with yellow blinking text
+    vga[offset_from_vga+3] = 0x8e | 0x01;//should be black baskground with yellow blinking text
     vga[offset_from_vga+4] = 'Z';
-    vga[offset_from_vga+5] = 0x0e | 0b00000001;//should be black baskground with yellow blinking text as well
+    vga[offset_from_vga+5] = 0x8e | 0b00000001;//should be black baskground with yellow blinking text as well
     
 }

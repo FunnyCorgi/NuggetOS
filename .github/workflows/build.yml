@@ -82,6 +82,7 @@ jobs:
           ls -al
           echo i386-elf-gcc version info
           /usr/local/i386elfgcc/bin/i386-elf-gcc --version
+          make clean
           make
           echo df
           df -h

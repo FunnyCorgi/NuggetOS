@@ -22,6 +22,22 @@ void main() {
     vga[offset_from_vga+1] = 0x0f;//white on black
     
     // testing color changes
+    /*
+        Available Colors for 2nd byte to be written to VGA:
+    Num     Color           Num+Bright Bit Color
+
+    0x0	    Black	        0x8	            Dark Gray
+    0x1 	Blue	        0x9	            Light Blue
+    0x2 	Green	        0xa	            Light Green
+    0x3 	Cyan	        0xb	            Light Cyan
+    0x4 	Red	            0xc	            Light Red
+    0x5 	Magenta	        0xd	            Pink
+    0x6 	Brown	        0xe	            Yellow
+    0x7 	Light Gray	    0xf	            White
+    */
     vga[offset_from_vga+2] = 'Y';
-    vga[offset_from_vga+3] = 0x0e;
+    vga[offset_from_vga+3] = 0x0e | 0x01;//should be black baskground with yellow blinking text
+    vga[offset_from_vga+4] = 'Z';
+    vga[offset_from_vga+5] = 0x0e | 0b00000001;//should be black baskground with yellow blinking text as well
+    
 }

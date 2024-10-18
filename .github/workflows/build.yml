@@ -82,11 +82,7 @@ jobs:
           ls -al
           echo i386-elf-gcc version info
           /usr/local/i386elfgcc/bin/i386-elf-gcc --version
-          /usr/local/i386elfgcc/bin/i386-elf-gcc -ffreestanding -c ./src/kernel/kernel.c -o ./kernel.o
-          nasm ./src/boot/kernel_entry.asm -f elf -o kernel_entry.o
-          /usr/local/i386elfgcc/bin/i386-elf-ld -o ./kernel.bin -Ttext 0x1000 ./kernel_entry.o ./kernel.o --oformat binary
-          nasm ./src/boot/bootsect.asm -f bin -o ./bootsect.bin
-          cat bootsect.bin kernel.bin > os-image.bin
+          make
           echo df
           df -h
           echo lsblk

@@ -1,5 +1,5 @@
-#ifndef screen_driver
-#define screen_driver
+#ifndef SCREEN_H
+#define SCREEN_H
 #define VIDEO_ADDRESS 0xb8000
 #define MAX_ROWS 25
 #define MAX_COLS 80

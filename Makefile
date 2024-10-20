@@ -1,7 +1,7 @@
 C_SOURCES = $(wildcard src/kernel/*.c src/drivers/*.c src/cpu/*.c)
 HEADERS = $(wildcard src/kernel/*.h src/drivers/*.h src/cpu/*.h)
 # Nice syntax for file extension replacement
-OBJ = ${C_SOURCES:.c=.o}
+OBJ = ${C_SOURCES:.c=.o src/cpu/interrupt.o}
 
 # Change this if your cross-compiler is somewhere else
 CC = /usr/local/i386elfgcc/bin/i386-elf-gcc

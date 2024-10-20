@@ -1,5 +1,5 @@
-C_SOURCES = $(wildcard src/kernel/*.c src/drivers/*.c)
-HEADERS = $(wildcard src/kernel/*.h src/drivers/*.h)
+C_SOURCES = $(wildcard src/kernel/*.c src/drivers/*.c src/cpu/*.c)
+HEADERS = $(wildcard src/kernel/*.h src/drivers/*.h src/cpu/*.h)
 # Nice syntax for file extension replacement
 OBJ = ${C_SOURCES:.c=.o}
 

@@ -4,7 +4,7 @@
 #include "screen.h"
 #include "../kernel/util.h"  // Ensure util functions are included
 
-void print_letter(u8 scancode)
+void print_letter(u8 scancode);
 
 static void keyboard_callback(registers_t regs) {
     /* The PIC leaves us the scancode in port 0x60 */

@@ -6,7 +6,7 @@
 static void keyboard_callback(registers_t regs) {
     /* The PIC leaves us the scancode in port 0x60 */
     u8 scancode = port_byte_in(0x60);
-    char *sc_ascii;
+    char *sc_ascii[4];
     int_to_ascii(scancode, sc_ascii);
     kprint("Keyboard scancode: ");
     kprint(sc_ascii);
